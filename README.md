@@ -1,6 +1,10 @@
 # Lakehouses Problem Brute Force
 My Brute Force solution to the Lakehouses Problem
 
+<p align="center">
+<img src="Lakehouses%20Problem.jpg" style="width:200px;">
+</p>
+
 Solution data represented as the relative distances between the lakehouses can be found in solutions.json.
 A visualization of all 324 solutions can be found here:
 https://kdjdev.github.io/Lakehouses-Problem-Brute-Force/
