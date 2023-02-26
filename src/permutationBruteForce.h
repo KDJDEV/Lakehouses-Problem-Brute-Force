@@ -25,12 +25,6 @@ class PermutationBruteForcer {
             }
             if (!foundDifference) return false;
         }
-
-        for (int i = 0; i < combination.size() - 1; ++i) {
-            if (combination[i + 1] - combination[i] < 1) { //make sure we don't have negative relative values
-                return false;
-            }
-        }
         return true;
     }
 
@@ -52,12 +46,13 @@ class PermutationBruteForcer {
 
     //generates all combinations recursively
     void go() {
+        // we set each for loop to only start at the previous number plus one because there can't be multiple cottages at the same positions
         for (int i = 0; i <= 26; i++) {
-            for (int j = 0; j <= 26; j++) {
-                for (int k = 0; k <= 26; k++) {
-                    for (int l = 0; l <= 26; l++) {
-                        for (int m = 0; m <= 26; m++) {
-                            for (int n = 0; n <= 26; n++) {
+            for (int j = i + 1; j <= 26; j++) {
+                for (int k = j + 1; k <= 26; k++) {
+                    for (int l = k + 1; l <= 26; l++) {
+                        for (int m = l + 1; m <= 26; m++) {
+                            for (int n = m + 1; n <= 26; n++) {
                                 vector<int> combinationCopy = { i, j, k, l, m, n };
                                 bool works = testCombination(combinationCopy);
                                 if (works == true) {
@@ -68,7 +63,6 @@ class PermutationBruteForcer {
                     }
                 }
             }
-            std::cout << (i / 26.0f) * 100 << "% complete \n";
         }
         return;
     }
